@@ -1,0 +1,32 @@
+const router=new VueRouter({
+    linkActiveClass:'active',
+    routes:[
+        {path:"/",component:Home},
+        {
+            path:"/info",
+            component:Info,
+            children:[
+                {
+                    path:"",
+                    component:List,
+                },
+                {
+                    path:"/info/:id",
+                    component:detail
+                }
+            ]
+        },
+        {
+            path:"/doc",
+            component:Con,
+            children:[
+                {
+                    path:"",
+                    components:{left:leftC,right:rightC}
+                }
+            ]
+        },
+        {path:"/login",component:Login},
+        {path:"*",redirect:'/'}
+    ]
+})
